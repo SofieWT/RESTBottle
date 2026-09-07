@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RepositoryTests/RepositoryTests.csproj" Id="2c16b3eb-fc0c-4efe-9e25-40a4af534f6f" />
+  <Project Path="RESTBottle/RESTBottle.csproj" />
+</Solution>

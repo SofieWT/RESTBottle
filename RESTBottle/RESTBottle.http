@@ -1,0 +1,6 @@
+@RESTBottle_HostAddress = http://localhost:5096
+
+GET {{RESTBottle_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
