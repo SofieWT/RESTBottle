@@ -1,38 +1,56 @@
-﻿using RESTBottle.Models;
-using RESTBottle.repostory;
+﻿using RESTBottle.Interfaces;
+using RESTBottle.Models;
 
 namespace RESTBottle.Service
 {
     public class BottleRepositoryDatabase : IBottlesRepository
     {
+
+        private BottlesDBContext _context;
+        public BottleRepositoryDatabase(BottlesDBContext context)
+        {
+            _context = context;
+        }
         public Bottle AddBottle(Bottle b)
         {
-            throw new NotImplementedException();
+            var addedBottle = _context.Bottles.Add(b);
+            _context.SaveChanges(); // Save changes to the database - denne er MEGET nødvendig for at ændringerne bliver gemt i databasen
+            return addedBottle.Entity;
         }
 
         public Bottle DeleteById(int id)
         {
-            throw new NotImplementedException();
+            var bottleToDelete = GetById(id);
+            if (bottleToDelete == null) return null;
+            _context.Bottles.Remove(bottleToDelete);
+            _context.SaveChanges();
+            return bottleToDelete;
         }
 
         public List<Bottle> Get()
         {
-            throw new NotImplementedException();
+            return _context.Bottles.ToList();
         }
 
         public IEnumerable<Bottle> GetBottles(string? nameStartsWith = null, double? minimumVolume = null, string? sortOrder = null)
         {
-            throw new NotImplementedException();
+            //TODO: Implement filtering and sorting logic based on the provided parameters.
+            return _context.Bottles;
         }
 
         public Bottle? GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Bottles.FirstOrDefault(b => b.Id == id);//Her skal SaveChanges ikke bruges, da vi kun henter data og ikke ændrer noget i databasen.
         }
-
+        
         public Bottle? Update(int id, Bottle data)
         {
-            throw new NotImplementedException();
+            var bottleToUpdate = GetById(id);
+            if(bottleToUpdate == null) return null;
+            bottleToUpdate.Name = data.Name;
+            bottleToUpdate.Volume = data.Volume;
+            _context.SaveChanges();
+            return bottleToUpdate;
         }
     }
 }

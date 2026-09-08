@@ -1,4 +1,5 @@
-﻿using RESTBottle.Models;
+﻿using RESTBottle.Interfaces;
+using RESTBottle.Models;
 
 namespace RESTBottle.repostory
 {

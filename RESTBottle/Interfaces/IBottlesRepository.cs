@@ -1,6 +1,6 @@
 ﻿using RESTBottle.Models;
 
-namespace RESTBottle.repostory
+namespace RESTBottle.Interfaces
 {
     public interface IBottlesRepository
     {
