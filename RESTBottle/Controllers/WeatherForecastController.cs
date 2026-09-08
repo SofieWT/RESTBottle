@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace RESTBottle.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Route("[controller]")] //Dette er en route, som bestemmer hvordan man kan tilgå controller og med kant paraenteser fortæller det at controller navnet skal bruges som route. Så hvis controlleren hedder WeatherForecastController, så bliver route til /WeatherForecast
+    public class WeatherForecastController : ControllerBase //man skal extend ControllerBase for at kunne bruge Controller funktionalitet
     {
         private static readonly string[] Summaries =
         [
