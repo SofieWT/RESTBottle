@@ -362,3 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /RESTBottle/Service/Secret.cs
+/RESTBottle/Service/Secret.cs
+/RESTBottle/appsettings.json
+/RESTBottle/appsettings.json
